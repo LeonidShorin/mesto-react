@@ -3,7 +3,7 @@ import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
 import PopupWithForm from './PopupWithForm';
-import PopupWithImage from './PopupWithImage';
+import ImagePopup from './ImagePopup';
 
 function App() {
 
@@ -116,7 +116,7 @@ function App() {
                                  className="popup__save-button popup__save-button_type_confirmation">Да
                          </button>
                        </fieldset></PopupWithForm>
-      <PopupWithImage card={selectedCard} onClose={closeAllPopups}/>
+      <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
     </div>
   )
 }

@@ -43,7 +43,7 @@ function App() {
       <Footer />
       
       <PopupWithForm name={'edit-profile-form'} title={'Редактировать профиль'} isOpen={isEditProfilePopupOpen}
-                     onClose={closeAllPopups}>
+                     onClose={closeAllPopups} /*onSubmit*/ submitName="Сохранить">
                        <fieldset className={'popup__fieldset'}>
                          <input type="text"
                                 className="popup__input popup__input_type_name"
@@ -63,14 +63,12 @@ function App() {
                                 maxLength="200"
                                 required/>
                          <span className="popup__input-error description-input-error">{}</span>
-                         <button type="submit"
-                                 className="popup__save-button popup__save-button_type_profile">
-                           Сохранить
-                         </button>
+                         
                        </fieldset> </PopupWithForm>
 
       <PopupWithForm name={'add-card-form'} title={'Новое место'} isOpen={isAddPlacePopupOpen}
-                     onClose={closeAllPopups}>
+                     onClose={closeAllPopups} /*onSubmit*/ submitName="Создать">
+                      
                        <fieldset className={'popup__fieldset'}>
                          <input type="text"
                                 className="popup__input popup__input_type_card-name"
@@ -88,33 +86,27 @@ function App() {
                                 id="image-link-input"
                                 required/>
                          <span className="popup__input-error image-link-input-error">{}</span>
-                         <button type="submit"
-                                 className="popup__save-button popup__save-button_type_card">
-                           Создать
-                         </button>
+                         
                        </fieldset></PopupWithForm>
                        
       <PopupWithForm name={'update-avatar-form'} title={'Обновить аватар'} isOpen={isEditAvatarPopupOpen}
-                     onClose={closeAllPopups}>
+                     onClose={closeAllPopups} /*onSubmit*/ submitName="Сохранить">
+                       
                        <fieldset className={'popup__fieldset'}>
                          <input type="url"
                                 className="popup__input popup__input_type_avatar"
                                 name="link"
+                                submitname="Сохранить"
                                 placeholder="Ссылка на картинку"
                                 id="avatar-link-input"
                                 required/>
                          <span className="popup__input-error avatar-link-input-error">{}</span>
-                         <button type="submit"
-                                 className="popup__save-button popup__save-button_type_avatar">
-                           Сохранить
-                         </button>
+                         
                        </fieldset></PopupWithForm>
 
-      <PopupWithForm name={'confirm-delete-form'} title={'Вы уверены?'}>
+      <PopupWithForm name={'confirm-delete-form'} title={'Вы уверены?'} /*onSubmit*/ submitName="Да">
                        <fieldset className={'popup__fieldset'}>
-                         <button type="submit"
-                                 className="popup__save-button popup__save-button_type_confirmation">Да
-                         </button>
+                         
                        </fieldset></PopupWithForm>
       <ImagePopup card={selectedCard} onClose={closeAllPopups}/>
     </div>

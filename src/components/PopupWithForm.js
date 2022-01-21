@@ -12,6 +12,10 @@ function PopupWithForm(props) {
                          'popup__title_avatar'
                           : ''}`}>{props.title}</h2>
           {props.children}
+          <button type="submit" 
+                  className={`popup__save-button popup__save-button_type_${props.name}`}>
+                           {props.submitName}
+                         </button>
         </form>
       </div>
     </div>

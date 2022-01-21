@@ -1,5 +1,5 @@
 # Проект: **Место на React**
-Github pages:
+Github pages: https://leonidshorin.github.io/mesto-react/
 -----
 Страница, созданная с целью практического изучения фреймворка React в рамках обучения на Яндекс.Практикум.
 -----

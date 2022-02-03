@@ -1,21 +1,35 @@
+import {useContext} from 'react';
+import {CurrentUserContext} from '../contexts/CurrentUserContext.js';
+
 function Card (props) {
+  const currentUser = useContext(CurrentUserContext);
+  const isOwn = props.card.owner._id === currentUser._id;
+  const isLiked = props.card.likes.some(i => (i._id === currentUser._id));
+
+
   function handleClick() {
     props.onCardClick(props.card);
   }
+
+  function handleConfirmDelete() {
+    props.onCardDelete(props.card);
+  }
+
   return (
     (<div className="element">
-      <img className="element__photo"
-           src={props.card.link}
-           alt={props.card.name}
-           onClick={handleClick}/>
+      <img className="element__photo" src={props.card.link} alt={props.card.name} onClick={handleClick}/>
       <div className="element__description">
         <h2 className="element__title">{props.card.name}</h2>
         <div className="element__like-block">
-          <button type="button" className="element__like-button">{}</button>
+          <button type="button" onClick={props.onCardLike} className={`element__like-button ${isLiked && 'element__like-button_active'}`}>
+            {}
+          </button>
           <span className="element__likes-num">{props.card.likes.length}</span>
         </div>
       </div>
-      <button type="button" className="element__delete-button">{}</button>
+      <button type="button" onClick={handleConfirmDelete} className={`element__delete-button${isOwn ? '' : '_hide'}`}>
+        {}
+      </button>
     </div>)
   )
 }

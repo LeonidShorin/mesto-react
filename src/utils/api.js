@@ -42,7 +42,7 @@ class Api {
     });
   }
 
-  updateAvatar(link) {
+  updateUserAvatar(link) {
     return fetch(this._url + '/users/me/avatar', {
       method: "PATCH",
       headers: this._headers,

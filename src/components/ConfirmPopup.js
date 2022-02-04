@@ -8,13 +8,9 @@ function ConfirmPopup(props) {
     props.onSubmit(props.card)
   }
   return (
-    <PopupWithForm name={'confirm-delete-form'} title={'Вы уверены?'} isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit} 
-    onLoading={props.onLoading} card={props.card}>
-      <fieldset className={'popup__fieldset'}>
-        <button type="submit" className={`popup__save-button ${isLoading && 'popup__save-button_disabled'}`}>
-          {isLoading ? 'Удаление...' : 'Да'}
-        </button>
-      </fieldset>
+    <PopupWithForm name={'confirm-delete-form'} title={'Вы уверены?'} isOpen={props.isOpen} onClose={props.onClose} onSubmit={handleSubmit}
+      onLoading={props.onLoading} card={props.card} buttonText={'Да'} loadingText={'Удаление...'}
+      classConditions={`popup__save-button ${isLoading && 'popup__save-button_disabled'}`}>
     </PopupWithForm>
   )
 }

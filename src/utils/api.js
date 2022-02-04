@@ -1,5 +1,5 @@
 class Api {
-  constructor({serverUrl, headers}) {
+  constructor({ serverUrl, headers }) {
     this._url = serverUrl;
     this._headers = headers;
   }
@@ -12,12 +12,13 @@ class Api {
   }
 
   getUserInfo() {
-    return fetch(this._url + '/users/me',{
+    return fetch(this._url + '/users/me', {
       method: 'GET',
       headers: this._headers,
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось загрузить данные пользователя');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось загрузить данные пользователя');
+      });
   }
 
   getInitialCards() {
@@ -25,11 +26,12 @@ class Api {
       method: 'GET',
       headers: this._headers,
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось загрузить карточки');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось загрузить карточки');
+      });
   }
 
-  editProfile({name, description}) {
+  editProfile({ name, description }) {
     return fetch(this._url + '/users/me', {
       method: 'PATCH',
       headers: this._headers,
@@ -38,8 +40,9 @@ class Api {
         about: description
       })
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось загрузить данные профиля');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось загрузить данные профиля');
+      });
   }
 
   updateUserAvatar(link) {
@@ -50,11 +53,12 @@ class Api {
         avatar: link
       })
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось загрузить аватар');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось загрузить аватар');
+      });
   }
 
-  addCard({name, link}) {
+  addCard({ name, link }) {
     return fetch(this._url + '/cards', {
       method: 'POST',
       headers: this._headers,
@@ -63,8 +67,9 @@ class Api {
         link: link
       })
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось добавить карточку');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось добавить карточку');
+      });
   }
 
   deleteCard(cardId) {
@@ -72,8 +77,9 @@ class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось удалить карточку');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось удалить карточку');
+      });
   }
 
   addLike(cardId) {
@@ -81,8 +87,9 @@ class Api {
       method: 'PUT',
       headers: this._headers,
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось поставить like');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось поставить like');
+      });
   }
 
   removeLike(cardId) {
@@ -90,13 +97,14 @@ class Api {
       method: 'DELETE',
       headers: this._headers,
     })
-    .then(res => {return this._parseResponse(res, 'Не удалось убрать лайк');
-    });
+      .then(res => {
+        return this._parseResponse(res, 'Не удалось убрать лайк');
+      });
   }
 }
 
 // Экземпляр класса Api
-export const api = new Api ({
+export const api = new Api({
   serverUrl: 'https://mesto.nomoreparties.co/v1/cohort-31',
   headers: {
     authorization: 'c5326610-ed33-45d9-9066-edfd682961dc',
